@@ -11,7 +11,18 @@ import 'package:appcheck/appcheck.dart';
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
 Future<bool> caValidateInstalledApp(String appName) async {
-  // Add your function code here!
+  var isInstalled = false;
+
+  // Verificamos si el nombre de la app tiene comillas, si no, las agregamos
+  if (!appName.startsWith("'") && !appName.endsWith("'")) {
+    appName = "'$appName'";
+  }
+
+  // Creamos la instancia de AppCheck
   final appCheck = AppCheck();
-  return appCheck.isAppInstalled(appName);
+
+  // Usamos await para esperar la respuesta de la función asíncrona
+  isInstalled = await appCheck.isAppInstalled(appName);
+
+  return isInstalled;
 }
