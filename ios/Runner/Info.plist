@@ -66,5 +66,12 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>youtube</string>
+		<string>comgooglemaps</string>
+		<!-- Add more schemes as needed -->
+	</array>
 </dict>
 </plist>
