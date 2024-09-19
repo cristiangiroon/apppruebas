@@ -7,6 +7,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   // Stores action output result for [Custom Action - caValidateInstalledApp] action in Button widget.
   bool? result;
+  // Stores action output result for [Custom Action - caValidateInstalledApp] action in Button widget.
+  bool? ios;
 
   @override
   void initState(BuildContext context) {}
