@@ -13,11 +13,6 @@ import 'package:appcheck/appcheck.dart';
 Future<bool> caValidateInstalledApp(String appName) async {
   var isInstalled = false;
 
-  // Verificamos si el nombre de la app tiene comillas, si no, las agregamos
-  if (!appName.startsWith("'") && !appName.endsWith("'")) {
-    appName = "'$appName'";
-  }
-
   // Creamos la instancia de AppCheck
   final appCheck = AppCheck();
 
