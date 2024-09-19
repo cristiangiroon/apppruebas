@@ -13,5 +13,5 @@ import 'package:appcheck/appcheck.dart';
 Future<bool> caValidateInstalledApp(String appName) async {
   // Add your function code here!
   final appCheck = AppCheck();
-  return appCheck.isAppInstalled('com.google.android.apps.maps');
+  return appCheck.isAppInstalled(appName);
 }
