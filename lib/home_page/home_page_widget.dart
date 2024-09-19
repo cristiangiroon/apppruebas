@@ -81,7 +81,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       _model.result = await actions.caValidateInstalledApp(
-                        '\'com.google.android.apps.maps\'',
+                        'com.google.android.apps.maps',
                       );
 
                       safeSetState(() {});
