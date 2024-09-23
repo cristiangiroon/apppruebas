@@ -120,7 +120,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       _model.ios = await actions.caValidateInstalledApp(
-                        'comgooglemaps',
+                        'com.apple.facetime',
                       );
 
                       safeSetState(() {});
