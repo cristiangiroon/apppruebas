@@ -71,6 +71,7 @@
 		<string>instagram</string>
 		<string>youtube</string>
 		<string>comgooglemaps</string>
+		<string>whatsapp</string>
 		<!-- Add more schemes as needed -->
 	</array>
 </dict>
