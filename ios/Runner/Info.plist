@@ -72,12 +72,14 @@
 		<string>youtube</string>
 		<string>comgooglemaps</string>
 		<string>whatsapp</string>
-		<string>aprobaciones</string>
+		<string>siesasalud</string>
+		<string>salud</string>
 		<string>notipushios</string>
 		<string>siesaindicadores</string>
 		<string>pruebasios</string>
 		<string>siesainventarios</string>
 		<string>siesaautogestionhotelera</string>
+
 		
 
 		<!-- Add more schemes as needed -->
