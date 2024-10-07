@@ -76,6 +76,9 @@
 		<string>notipushios</string>
 		<string>indicadores</string>
 		<string>pruebasios</string>
+		<string>inventarios</string>
+		<string>autogestionhotelera</string>
+		
 
 		<!-- Add more schemes as needed -->
 	</array>
