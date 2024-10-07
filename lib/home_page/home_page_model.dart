@@ -9,10 +9,19 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   bool? result;
   // Stores action output result for [Custom Action - caValidateInstalledApp] action in Button widget.
   bool? ios;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Custom Action - caValidateInstalledApp] action in Button widget.
+  bool? ios2;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
 }
