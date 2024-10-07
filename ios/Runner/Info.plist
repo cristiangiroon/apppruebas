@@ -74,6 +74,8 @@
 		<string>whatsapp</string>
 		<string>com.siesa.aprobaciones</string>
 		<string>com.indicadores.siesa</string>
+		<string>aprobaciones</string>
+		<string>notipushios</string>
 
 		<!-- Add more schemes as needed -->
 	</array>
