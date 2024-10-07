@@ -72,6 +72,9 @@
 		<string>youtube</string>
 		<string>comgooglemaps</string>
 		<string>whatsapp</string>
+		<string>com.siesa.aprobaciones</string>
+		<string>com.indicadores.siesa</string>
+
 		<!-- Add more schemes as needed -->
 	</array>
 </dict>
