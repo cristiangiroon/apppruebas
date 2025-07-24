@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-</dict>
+  <dict>
+    <!-- Start of Associated Domain -->
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+      <string>applinks:apppruebasiesa.app.link</string>
+    </array>
+    <!-- End of Associated Domain -->
+  </dict>
 </plist>
