@@ -7,16 +7,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:appcheck/appcheck.dart';
+import 'package:flutter_branch_sdk/flutter_branch_sdk.dart';
 
-Future<bool> caValidateInstalledApp(String appName) async {
-  var isInstalled = false;
-
-  // Creamos la instancia de AppCheck
-  final appCheck = AppCheck();
-
-  // Usamos await para esperar la respuesta de la función asíncrona
-  isInstalled = await appCheck.isAppInstalled(appName);
-
-  return isInstalled;
+Future initBranch() async {
+  // Add your function code here!
+  await FlutterBranchSdk.init();
 }
