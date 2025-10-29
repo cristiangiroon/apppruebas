@@ -54,6 +54,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: LoadingWidget.routeName,
+          path: LoadingWidget.routePath,
+          builder: (context, params) => LoadingWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

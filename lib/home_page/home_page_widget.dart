@@ -2,7 +2,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -27,8 +29,60 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.handleBranchDeeplink(
+        (data) async {
+          var _shouldSetState = false;
+          _model.resultadoLink = await actions.newCustomAction(
+            data,
+          );
+          _shouldSetState = true;
+          if (_model.resultadoLink != null && _model.resultadoLink != '') {
+            context.goNamed(
+              PagePruebaWidget.routeName,
+              queryParameters: {
+                'parametro': serializeParam(
+                  _model.resultadoLink,
+                  ParamType.String,
+                ),
+              }.withoutNulls,
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.bottomToTop,
+                ),
+              },
+            );
+
+            return;
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return AlertDialog(
+                  title: Text('DeepLink'),
+                  content: Text('No hay datos en el link.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                );
+              },
+            );
+            return;
+          }
+        },
+        (error) async {},
+      );
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -81,8 +135,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -113,6 +169,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     onPressed: () async {
                       _model.result = await actions.caValidateInstalledApp(
                         'com.google.android.apps.maps',
+                      );
+
+                      safeSetState(() {});
+                      await _model.listViewController?.animateTo(
+                        _model.listViewController!.position.maxScrollExtent,
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.ease,
                       );
 
                       safeSetState(() {});
@@ -389,7 +452,46 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       ),
                 ),
+                FFButtonWidget(
+                  onPressed: () async {
+                    await actions.caScanQrWeb(
+                      context,
+                      () async {
+                        safeSetState(() {});
+                      },
+                    );
+                  },
+                  text: 'Button',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).success,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          font: GoogleFonts.interTight(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
               ],
+              controller: _model.listViewController,
             ),
           ),
         ),

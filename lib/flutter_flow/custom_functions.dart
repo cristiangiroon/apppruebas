@@ -9,12 +9,13 @@ import 'lat_lng.dart';
 import 'place.dart';
 import 'uploaded_file.dart';
 
-bool validateDeppLink(dynamic data) {
-  if (data is Map && data.containsKey('page')) {
-    final page = data['page'];
-    if (page is String && page.toLowerCase() == 'prueba') {
-      return true;
+String validateDeppLink(dynamic data) {
+  if (data is Map && data.containsKey('AdminMobileCode')) {
+    String page = '';
+    page = data['AdminMobileCode'];
+    if (page.isNotEmpty) {
+      return page;
     }
   }
-  return false;
+  return '';
 }

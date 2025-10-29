@@ -27,6 +27,7 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+  ai_barcode_scanner: ^7.1.0
   appcheck: ^1.5.2
   auto_size_text: 3.0.0
   cached_network_image: 3.4.1
@@ -42,6 +43,7 @@ dependencies:
   google_fonts: 6.1.0
   intl: 0.20.2
   json_path: 0.7.2
+  mobile_scanner: ^7.1.2
   page_transition: 2.1.0
   path_provider: 2.1.4
   path_provider_android: 2.2.10
@@ -50,6 +52,7 @@ dependencies:
   path_provider_platform_interface: 2.1.2
   path_provider_windows: 2.3.0
   provider: 6.1.5
+  qr_bar_code_scanner_dialog_siesa: ^1.0.0
   shared_preferences: 2.5.3
   shared_preferences_android: 2.4.10
   shared_preferences_foundation: 2.5.4
